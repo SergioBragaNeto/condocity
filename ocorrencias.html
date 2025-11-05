@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocorrências - CondoCity</title>
+    
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    
+    <link rel="stylesheet" href="css/tela.css">
+</head>
+<body>
+
+    <div class="d-flex">
+       
+        <nav id="sidebar" class="d-none d-lg-block">
+            <div class="sidebar-header">
+                <a href="dashboard.html">
+                    <img src="img/condocitybranco.png" alt="CondoCity Logo" class="img-fluid">
+                </a>
+                <p class="slogan">Gestão e comunicação em um só lugar!</p>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="bi bi-grid-fill me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="moradores.html">
+                        <i class="bi bi-people-fill me-2"></i>
+                        Moradores
+                    </a>
+                </li>
+                <li>
+                    <a href="reservas.html">
+                        <i class="bi bi-calendar-check-fill me-2"></i>
+                        Reservas
+                    </a>
+                </li>
+                <li>
+                    <a href="financeiro.html">
+                        <i class="bi bi-wallet-fill me-2"></i>
+                        Financeiro
+                    </a>
+                </li>
+               
+                <li class="active">
+                    <a href="ocorrencias.html">
+                        <i class="bi bi-chat-left-text-fill me-2"></i>
+                        Ocorrências
+                    </a>
+                </li>
+                <li>
+                    <a href="encomendas.html">
+                        <i class="bi bi-box-seam-fill me-2"></i>
+                        Encomendas
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracao.html">
+                        <i class="bi bi-gear-fill me-2"></i>
+                        Configurações
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        
+        <div id="content" class="flex-grow-1">
+        
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+                <div class="container-fluid">
+                    <button class="btn btn-outline-dark d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
+                        <i class="bi bi-list"></i>
+                    </button>
+                   
+                    <form class="d-none d-md-flex ms-3">
+                        <input class="form-control me-2" type="search" placeholder="Buscar ocorrência..." aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                    </form>
+                    <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" title="Notificações">
+                                <i class="bi bi-bell-fill fs-5"></i>
+                                <span class="badge rounded-pill bg-danger" style="position: absolute; top: 10px; right: 2px; font-size: 0.6em;">3</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://placehold.co/40x40/005c97/FFF?text=S" alt="Síndico" class="rounded-circle" height="30" width="30">
+                                <span class="ms-2 d-none d-sm-inline">Carlos Silva (Síndico)</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Meu Perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Ajuda</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="login.html">Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            
+            <main class="container-fluid p-4">
+                
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="h3 mb-0">Gestão de Ocorrências</h1>
+                    
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNovaOcorrencia">
+                        <i class="bi bi-plus-circle-fill me-2"></i>
+                        Registrar Ocorrência
+                    </button>
+                </div>
+
+                
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">Lista de Ocorrências</h5>
+                    </div>
+                    <div class="card-body">
+                        
+                        <form class="row g-3 align-items-end mb-4">
+                            <div class="col-md-4">
+                                <label for="filtroStatus" class="form-label">Status</label>
+                                <select id="filtroStatus" class="form-select">
+                                    <option selected>Todos os Status</option>
+                                    <option value="pendente">Pendente</option>
+                                    <option value="em_andamento">Em Andamento</option>
+                                    <option value="resolvido">Resolvido</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="filtroCategoria" class="form-label">Categoria</label>
+                                <select id="filtroCategoria" class="form-select">
+                                    <option selected>Todas as Categorias</option>
+                                    <option value="barulho">Barulho</option>
+                                    <option value="vazamento">Vazamento</option>
+                                    <option value="eletrica">Elétrica</option>
+                                    <option value="limpeza">Limpeza</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="filtroMorador" class="form-label">Morador</label>
+                                <input type="text" class="form-control" id="filtroMorador" placeholder="Buscar por nome ou apto...">
+                            </div>
+                        </form>
+
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">Protocolo</th>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Morador (Unid.)</th>
+                                        <th scope="col">Categoria</th>
+                                        <th scope="col">Assunto</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col" class="text-center">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#1052</td>
+                                        <td>26/10/2025 10:30</td>
+                                        <td>João Silva (101A)</td>
+                                        <td>Barulho</td>
+                                        <td>Música alta após as 22h</td>
+                                        <td><span class="badge bg-warning-subtle text-warning-emphasis">Pendente</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalNovaOcorrencia">
+                                                <i class="bi bi-eye-fill"></i> Ver
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1051</td>
+                                        <td>25/10/2025 15:10</td>
+                                        <td>Maria Oliveira (204B)</td>
+                                        <td>Vazamento</td>
+                                        <td>Infiltração no teto do banheiro</td>
+                                        <td><span class="badge bg-primary-subtle text-primary-emphasis">Em Andamento</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalNovaOcorrencia">
+                                                <i class="bi bi-eye-fill"></i> Ver
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1050</td>
+                                        <td>24/10/2025 08:00</td>
+                                        <td>- (Síndico)</td>
+                                        <td>Elétrica</td>
+                                        <td>Lâmpada queimada na garagem G2</td>
+                                        <td><span class="badge bg-success-subtle text-success-emphasis">Resolvido</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalNovaOcorrencia">
+                                                <i class="bi bi-eye-fill"></i> Ver
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1049</td>
+                                        <td>22/10/2025 14:00</td>
+                                        <td>Ana Beatriz (302A)</td>
+                                        <td>Limpeza</td>
+                                        <td>Corredor do 3º andar sujo</td>
+                                        <td><span class="badge bg-success-subtle text-success-emphasis">Resolvido</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalNovaOcorrencia">
+                                                <i class="bi bi-eye-fill"></i> Ver
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileSidebarLabel">CondoCity</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            
+            <div class="sidebar-header">
+                <a href="dashboard.html">
+                    <img src="condocity.png" alt="CondoCity Logo" class="img-fluid">
+                </a>
+                <p class="slogan">Gestão e comunicação em um só lugar!</p>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="bi bi-grid-fill me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="moradores.html">
+                        <i class="bi bi-people-fill me-2"></i>
+                        Moradores
+                    </a>
+                </li>
+                <li>
+                    <a href="reservas.html">
+                        <i class="bi bi-calendar-check-fill me-2"></i>
+                        Reservas
+                    </a>
+                </li>
+                <li>
+                    <a href="financeiro.html">
+                        <i class="bi bi-wallet-fill me-2"></i>
+                        Financeiro
+                    </a>
+                </li>
+                
+                <li class="active">
+                    <a href="ocorrencias.html">
+                        <i class="bi bi-chat-left-text-fill me-2"></i>
+                        Ocorrências
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="bi bi-box-seam-fill me-2"></i>
+                        Encomendas
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="bi bi-gear-fill me-2"></i>
+                        Configurações
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="modalNovaOcorrencia" tabindex="-1" aria-labelledby="modalNovaOcorrenciaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalNovaOcorrenciaLabel">Registrar Nova Ocorrência</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="ocorMorador" class="form-label">Morador (Registrado por)</label>
+                                <select id="ocorMorador" class="form-select">
+                                    <option selected>Apto 101 - João da Silva</option>
+                                    <option>Apto 204 - Maria Oliveira</option>
+                                    <option>Apto 302 - Ana Beatriz</option>
+                                    <option>Nenhum (Registrado pelo Síndico)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="ocorCategoria" class="form-label">Categoria</label>
+                                <select id="ocorCategoria" class="form-select" required>
+                                    <option selected hidden value="">Selecione a categoria...</option>
+                                    <option>Barulho</option>
+                                    <option>Vazamento</option>
+                                    <option>Elétrica</option>
+                                    <option>Limpeza</option>
+                                    <option>Outros</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="ocorData" class="form-label">Data e Hora</label>
+                                <input type="datetime-local" class="form-control" id="ocorData" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="ocorStatus" class="form-label">Status</label>
+                                <select id="ocorStatus" class="form-select" required>
+                                    <option value="pendente" selected>Pendente</option>
+                                    <option value="em_andamento">Em Andamento</option>
+                                    <option value="resolvido">Resolvido</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-12">
+                                <label for="ocorAssunto" class="form-label">Assunto</label>
+                                <input type_="text" class="form-control" id="ocorAssunto" placeholder="Um breve resumo da ocorrência" required>
+                            </div>
+                            
+                            <div class="col-12">
+                                <label for="ocorDescricao" class="form-label">Descrição Completa</label>
+                                <textarea class="form-control" id="ocorDescricao" rows="4" placeholder="Detalhe a ocorrência..."></textarea>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="ocorFoto" class="form-label">Anexar Foto (Opcional)</label>
+                                <input class="form-control" type="file" id="ocorFoto">
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Salvar Ocorrência</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    
+
+</body>
+</html>

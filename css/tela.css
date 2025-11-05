@@ -1,0 +1,152 @@
+/* ================================================
+   CSS para o Dashboard CondoCity
+   ================================================ */
+
+
+:root {
+    --primary-color: #005c97;      
+    --primary-dark: #004a79;      
+    --primary-gradient: linear-gradient(to right, #004a79, #005c97, #007bff);
+    --body-bg: #f8f9fa;           
+    --text-light: #f1f1f1;
+    --text-dark: #212529;
+}
+
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-dark);
+}
+
+
+#sidebar {
+    width: 260px;
+    height: 100vh;
+    background: var(--primary-dark);
+    color: var(--text-light);
+    position: sticky; 
+    top: 0;
+    transition: all 0.3s;
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sidebar-header img {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+.sidebar-header .slogan {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#sidebar .list-unstyled {
+    padding: 20px 0;
+}
+
+#sidebar .list-unstyled a {
+    display: block;
+    padding: 12px 25px;
+    font-size: 1rem;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#sidebar .list-unstyled a:hover {
+    background: var(--primary-color);
+    color: #fff;
+    border-left: 4px solid #007bff;
+    padding-left: 21px; 
+}
+
+#sidebar .list-unstyled li.active > a {
+    background: var(--primary-gradient);
+    color: #fff;
+    font-weight: 600;
+}
+
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+.navbar {
+    padding: 1rem;
+    position: sticky; 
+    top: 0;
+    z-index: 1020; 
+}
+
+
+.stat-card {
+    border: none;
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.stat-card .stat-icon {
+    font-size: 2.5rem;
+    margin-right: 15px;
+    opacity: 0.8;
+}
+
+
+.stat-card .text-primary { color: var(--primary-color) !important; }
+.stat-card .text-danger { color: #dc3545 !important; }
+.stat-card .text-success { color: #198754 !important; }
+.stat-card .text-warning { color: #ffc107 !important; }
+
+.stat-card:nth-child(2) { border-color: #dc3545; }
+.stat-card:nth-child(3) { border-color: #198754; }
+.stat-card:nth-child(4) { border-color: #ffc107; }
+
+
+
+.table-responsive {
+    max-height: 400px; 
+}
+
+.table th {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+
+.offcanvas-body .sidebar-header {
+    border-bottom: none; 
+}
+
+.offcanvas-body .list-unstyled {
+    padding: 0;
+}
+
+.offcanvas-body .list-unstyled a {
+    color: var(--text-dark); 
+    padding: 12px 15px;
+}
+
+.offcanvas-body .list-unstyled a:hover {
+    background: #f1f1f1;
+    color: var(--primary-color);
+    border-left: none;
+    padding-left: 15px;
+}
+.offcanvas-body .list-unstyled li.active > a {
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+}

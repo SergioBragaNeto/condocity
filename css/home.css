@@ -1,0 +1,258 @@
+:root {
+  --primary-color: #0d6efd; /* Azul padrão do Bootstrap */
+  --primary-hover: #0b5ed7;
+  --text-dark: #212529;
+  --text-light: #6c757d;
+  --section-bg: #f8f9fa; /* Fundo das secções (cinza claro) */
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* =======================================
+   2. BARRA DE NAVEGAÇÃO
+   ======================================= */
+#main-nav {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.navbar-logo {
+  height: 70px; 
+  width: auto;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: var(--text-light);
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--primary-color);
+}
+
+.navbar-nav .btn-outline-primary {
+  border-width: 2px;
+  font-weight: 600;
+}
+
+/* =======================================
+   3. SECÇÃO "HERO" (APRESENTAÇÃO)
+   ======================================= */
+.hero-section {
+  padding: 6rem 0;
+  background-color: #ffffff;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+
+.hero-buttons .btn {
+  margin-right: 1rem;
+  margin-bottom: 1rem; /* Para empilhar bem no mobile */
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+}
+
+/* =======================================
+   4. (ATUALIZADO) CARROSSEL DE IMAGENS
+   ======================================= */
+.app-carousel-container {
+  border-radius: 12px; /* Cantos arredondados */
+  overflow: hidden; /* Garante que as imagens não passem da borda */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08),
+    0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Ajusta as imagens dentro do carrossel */
+.carousel-inner img {
+  border-radius: 12px;
+  max-height: 500px; /* Altura máxima */
+  object-fit: none; /* Garante que a imagem cubra a área */
+}
+
+/* Estiliza as legendas */
+.carousel-caption {
+  background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
+}
+
+.carousel-caption h5 {
+  color: #fff;
+  font-weight: 600;
+}
+
+.carousel-caption p {
+  color: #eee;
+}
+
+/* =======================================
+   5. SECÇÃO "FUNCIONALIDADES"
+   ======================================= */
+.features-section {
+  padding: 6rem 0;
+  background-color: var(--section-bg);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title span {
+  color: var(--primary-color);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  margin-top: 0.5rem;
+}
+
+.section-title p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 1rem auto 0 auto;
+}
+
+.feature-card {
+  background-color: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.feature-card .feature-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* =======================================
+   6. RODAPÉ
+   ======================================= */
+.footer-section {
+  padding: 5rem 0 2rem 0;
+  background-color: var(--text-dark);
+  color: #adb5bd; /* Cinza claro para o texto */
+}
+
+/* (NOVO) Alinha a primeira coluna (logo/socials) ao centro */
+.footer-section .row .col-lg-4:first-child {
+  text-align: center;
+}
+
+.footer-logo {
+  height: 100px;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.footer-section p {
+  color: #adb5bd;
+}
+
+.footer-section h5 {
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: #adb5bd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.footer-links.contact-info i {
+  margin-right: 0.75rem;
+  width: 20px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.footer-socials a {
+  font-size: 1.25rem;
+  color: #adb5bd;
+  /* (ALTERADO) Usa margem horizontal para espaçamento em vez de só na direita */
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: var(--primary-color);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #343a40; /* Linha divisória */
+}
+

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encomendas - CondoCity</title>
+    
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+ 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+   
+    <link rel="stylesheet" href="css/tela.css">
+</head>
+<body>
+
+    <div class="d-flex">
+       
+        <nav id="sidebar" class="d-none d-lg-block">
+            
+            <div class="sidebar-header">
+                <a href="dashboard.html">
+                    <img src="img/condocitybranco.png" alt="CondoCity Logo" class="img-fluid">
+                </a>
+                <p class="slogan">Gestão e comunicação em um só lugar!</p>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="bi bi-grid-fill me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="moradores.html">
+                        <i class="bi bi-people-fill me-2"></i>
+                        Moradores
+                    </a>
+                </li>
+                <li>
+                    <a href="reservas.html">
+                        <i class="bi bi-calendar-check-fill me-2"></i>
+                        Reservas
+                    </a>
+                </li>
+                <li>
+                    <a href="financeiro.html">
+                        <i class="bi bi-wallet-fill me-2"></i>
+                        Financeiro
+                    </a>
+                </li>
+                <li>
+                    <a href="ocorrencias.html">
+                        <i class="bi bi-chat-left-text-fill me-2"></i>
+                        Ocorrências
+                    </a>
+                </li>
+                
+                <li class="active">
+                    <a href="encomendas.html">
+                        <i class="bi bi-box-seam-fill me-2"></i>
+                        Encomendas
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracao.html">
+                        <i class="bi bi-gear-fill me-2"></i>
+                        Configurações
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+     
+        <div id="content" class="flex-grow-1">
+            
+           
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+                
+                <div class="container-fluid">
+                    <button class="btn btn-outline-dark d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
+                        <i class="bi bi-list"></i>
+                    </button>
+                   
+                    <form class="d-none d-md-flex ms-3">
+                        <input class="form-control me-2" type="search" placeholder="Buscar encomenda" aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                    </form>
+                    <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" title="Notificações">
+                                <i class="bi bi-bell-fill fs-5"></i>
+                                <span class="badge rounded-pill bg-danger" style="position: absolute; top: 10px; right: 2px; font-size: 0.6em;">3</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://placehold.co/40x40/005c97/FFF?text=S" alt="Síndico" class="rounded-circle" height="30" width="30">
+                                <span class="ms-2 d-none d-sm-inline">Carlos Silva (Síndico)</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Meu Perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Ajuda</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="login.html">Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+           
+            <main class="container-fluid p-4">
+                
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="h3 mb-0">Gestão de Encomendas</h1>
+                    
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNovaEncomenda">
+                        <i class="bi bi-plus-circle-fill me-2"></i>
+                        Registrar Encomenda
+                    </button>
+                </div>
+
+              
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card stat-card border-warning shadow-sm h-100">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-boxes stat-icon text-warning"></i>
+                                <div>
+                                    <h6 class="text-muted mb-1">Pendentes (Total)</h6>
+                                    <h4 class="mb-0">2</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card stat-card border-primary shadow-sm h-100">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-box-arrow-in-down stat-icon text-primary"></i>
+                                <div>
+                                    <h6 class="text-muted mb-1">Recebidas Hoje</h6>
+                                    <h4 class="mb-0">1</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card stat-card border-success shadow-sm h-100">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-box-arrow-up stat-icon text-success"></i>
+                                <div>
+                                    <h6 class="text-muted mb-1">Retiradas Hoje</h6>
+                                    <h4 class="mb-0">2</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card stat-card border-info shadow-sm h-100">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-clock-history stat-icon text-info"></i>
+                                <div>
+                                    <h6 class="text-muted mb-1">Média Permanência</h6>
+                                    <h4 class="mb-0">~ 8 horas</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">Encomendas Recebidas</h5>
+                    </div>
+                    <div class="card-body">
+                        
+                        <form class="row g-3 align-items-end mb-4">
+                           
+                            <div class="col-md-3">
+                                <label for="filtroStatus" class="form-label">Status</label>
+                                <select id="filtroStatus" class="form-select">
+                                    <option value="">Todos os Status</option>
+                                    <option value="pendente" selected>Pendente Retirada</option>
+                                    <option value="retirado">Retirado</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="filtroMorador" class="form-label">Morador</label>
+                                <input type="text" class="form-control" id="filtroMorador" placeholder="Buscar por nome ou apto...">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="filtroDataInicio" class="form-label">De:</label>
+                                <input type="date" class="form-control" id="filtroDataInicio">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="filtroDataFim" class="form-label">Até:</label>
+                                <input type="date" class="form-control" id="filtroDataFim">
+                            </div>
+                        </form>
+
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">Protocolo</th>
+                                        <th scope="col">Data Chegada</th>
+                                        <th scope="col">Morador (Unid.)</th>
+                                        <th scope="col">Tipo</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Data Retirada</th>
+                                        <th scope="col" class="text-center">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <tr>
+                                        <td>#E102</td>
+                                        <td>26/10/2025 14:30</td>
+                                        <td>João Silva (101A)</td>
+                                        <td>
+                                            <span class_ ="badge bg-info-subtle text-info-emphasis">
+                                                <i class="bi bi-box-seam-fill me-1"></i> Pacote
+                                            </span>
+                                        </td>
+                                        <td><span class="badge bg-warning-subtle text-warning-emphasis">Pendente</span></td>
+                                        <td>-</td>
+                                        <td class="text-center">
+                                            
+                                            <button class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalNovaEncomenda">
+                                                <i class="bi bi-check-square-fill me-1"></i> Registrar Retirada
+                                            </button>
+                                        </td>
+                                    </tr>
+                                  
+                                    <tr>
+                                        <td>#E101</td>
+                                        <td>25/10/2025 11:15</td>
+                                        <td>Maria Oliveira (204B)</td>
+                                        <td>
+                                            <span class="badge bg-danger-subtle text-danger-emphasis">
+                                                <i class="bi bi-cup-straw me-1"></i> iFood
+                                            </span>
+                                        </td>
+                                        <td><span class="badge bg-success-subtle text-success-emphasis">Retirado</span></td>
+                                        <td>25/10/2025 11:20</td>
+                                        <td class="text-center">
+                                            
+                                            <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalNovaEncomenda">
+                                                <i class="bi bi-eye-fill me-1"></i> Ver Detalhes
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>#E100</td>
+                                        <td>24/10/2025 09:00</td>
+                                        <td>Ana Beatriz (302A)</td>
+                                        <td>
+                                            <span class_ ="badge bg-warning-subtle text-warning-emphasis">
+                                                <i class="bi bi-envelope-fill me-1"></i> Correios
+                                            </span>
+                                        </td>
+                                        <td><span class="badge bg-success-subtle text-success-emphasis">Retirado</span></td>
+                                        <td>24/10/2025 18:05</td>
+                                        <td class="text-center">
+                                            
+                                            <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalNovaEncomenda">
+                                                <i class="bi bi-eye-fill me-1"></i> Ver Detalhes
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>#E099</td>
+                                        <td>23/10/2025 16:40</td>
+                                        <td>Carlos Souza (501B)</td>
+                                        <td>
+                                            <span class_ ="badge bg-info-subtle text-info-emphasis">
+                                                <i class="bi bi-box-seam-fill me-1"></i> Pacote
+                                            </span>
+                                        </td>
+                                        <td><span class="badge bg-warning-subtle text-warning-emphasis">Pendente</span></td>
+                                        <td>-</td>
+                                        <td class="text-center">
+                                            
+                                            <button class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalNovaEncomenda">
+                                                <i class="bi bi-check-square-fill me-1"></i> Registrar Retirada
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+   
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+        
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileSidebarLabel">CondoCity</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            
+            <div class="sidebar-header">
+                <a href="dashboard.html">
+                    <img src="condocity.png" alt="CondoCity Logo" class="img-fluid">
+                </a>
+                <p class="slogan">Gestão e comunicação em um só lugar!</p>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="bi bi-grid-fill me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="moradores.html">
+                        <i class="bi bi-people-fill me-2"></i>
+                        Moradores
+                    </a>
+                </li>
+                <li>
+                    <a href="reservas.html">
+                        <i class="bi bi-calendar-check-fill me-2"></i>
+                        Reservas
+                    </a>
+                </li>
+                <li>
+                    <a href="financeiro.html">
+                        <i class="bi bi-wallet-fill me-2"></i>
+                        Financeiro
+                    </a>
+                </li>
+                <li>
+                    <a href="ocorrencias.html">
+                        <i class="bi bi-chat-left-text-fill me-2"></i>
+                        Ocorrências
+                    </a>
+                </li>
+             
+                <li class="active">
+                    <a href="encomendas.html">
+                        <i class="bi bi-box-seam-fill me-2"></i>
+                        Encomendas
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracao.html">
+                        <i class="bi bi-gear-fill me-2"></i>
+                        Configurações
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalNovaEncomenda" tabindex="-1" aria-labelledby="modalNovaEncomendaLabel" aria-hidden="true">
+        
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalNovaEncomendaLabel">Registrar Nova Encomenda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="encMorador" class="form-label">Morador (Destinatário)</label>
+                                <select id="encMorador" class="form-select" required>
+                                    <option selected hidden value="">Selecione o morador...</option>
+                                    <option>Apto 101A - João Silva</option>
+                                    <option>Apto 204B - Maria Oliveira</option>
+                                    <option>Apto 302A - Ana Beatriz</option>
+                                    <option>Apto 501B - Carlos Souza</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="encTipo" class="form-label">Tipo</label>
+                                <select id="encTipo" class="form-select" required>
+                                    <option selected>Pacote</option>
+                                    <option>Correios</option>
+                                    <option>iFood</option>
+                                    <option>Outro Delivery</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="encDataChegada" class="form-label">Data e Hora da Chegada</label>
+                                <input type="datetime-local" class="form-control" id="encDataChegada" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="encStatus" class="form-label">Status</label>
+                                <select id="encStatus" class="form-select" required>
+                                    <option value="pendente" selected>Pendente Retirada</option>
+                                    <option value="retirado">Retirado</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-12">
+                                <label for="encObs" class="form-label">Observações (Opcional)</label>
+                                <textarea class="form-control" id="encObs" rows="2" placeholder="Ex: Pacote frágil, caixa amassada..."></textarea>
+                            </div>
+
+                            <hr class="my-3">
+
+                            <div class="col-md-6">
+                                <label for="encDataRetirada" class="form-label">Data e Hora da Retirada (Opcional)</label>
+                                <input type="datetime-local" class="form-control" id="encDataRetirada">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="encRetiradoPor" class="form-label">Retirado por (Opcional)</label>
+                                <input type="text" class="form-control" id="encRetiradoPor" placeholder="Nome de quem retirou">
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Salvar Encomenda</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
