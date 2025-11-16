@@ -1,140 +1,80 @@
-/* ================================================
-   CSS Melhorado - Formulário de Cadastro (CondoCity)
-   ================================================ */
-
-/* 1. Variáveis de Cor: Facilita a customização da marca */
 :root {
-    --primary-color: #005c97;      /* Um azul mais sóbrio (cor principal) */
-    --primary-hover: #004a79;      /* Cor para o hover do botão */
-    --focus-glow: rgba(0, 92, 151, 0.25); /* Sombra de foco na cor principal */
-    --body-bg: #f8f9fa;           /* Fundo da página (cinza bem claro) */
-    --form-bg: #ffffff;           /* Fundo do formulário (branco) */
-    --text-dark: #212529;         /* Cor do texto principal */
-    --text-secondary: #555;       /* Cor dos labels */
-    --border-color: #ced4da;      /* Cor da borda dos inputs */
+    --condo-blue: #1F3B63;
 }
 
-/* 2. Reset Básico e Estilo do Body */
-* {
-    box-sizing: border-box;
-}
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--body-bg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
 }
 
-/* 3. Estilo do "Card" do Formulário */
-form {
-    max-width: 800px;
-    width: 100%;
-    padding: 2.5rem; /* Mais padding */
-    background-color: var(--form-bg);
-    border-radius: 12px; /* Cantos mais arredondados */
-    /* Sombra mais suave e moderna */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 5px 10px rgba(0, 0, 0, 0.02);
-    border: 1px solid #e9ecef; /* Borda sutil */
+
+.gradient-custom-2 {
+    background: var(--condo-blue);
 }
 
-/* 4. Título do Formulário */
-h2 {
-    text-align: center;
-    color: var(--text-dark);
-    margin-top: 0;
-    margin-bottom: 2rem; /* Mais espaço abaixo do título */
-    font-weight: 700;
-}
 
-/* 5. Labels */
-label {
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem; /* Espaço entre o label e o input */
-}
 
-/* 6. Inputs e Select (A MELHORIA PRINCIPAL) */
-.form-control {
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: .75rem 1rem; /* Inputs um pouco mais altos */
+
+.form-control,
+.form-select {
+    border-radius: 0.375rem;
+    padding: 0.75rem 1rem;
     font-size: 0.95rem;
-
-    /* Transição suave para o foco */
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Remove a borda padrão do Bootstrap e adiciona o "brilho" */
-.form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px var(--focus-glow);
-    outline: none; /* Remove o contorno azul padrão */
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--condo-blue);
+    box-shadow: 0 0 0 0.25rem rgba(31, 59, 99, 0.25);
 }
 
-/* 7. Botão Principal */
+
 .btn-primary {
-    width: 100%;
-    padding: .75rem; /* Altura consistente com os inputs */
+    background-color: var(--condo-blue);
+    border-color: var(--condo-blue);
+    padding: 0.75rem;
     font-size: 1rem;
-    font-weight: 600;
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    border-radius: 6px;
-    margin-top: 1.5rem; /* Mais espaço acima do botão */
-
-    /* Transições suaves para o botão */
-    transition: background-color 0.2s ease, 
-                transform 0.1s ease, 
-                box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-hover);
-    border-color: var(--primary-hover);
-    /* Efeito de "levantar" */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.btn-primary:focus {
-    background-color: var(--primary-hover);
-    border-color: var(--primary-hover);
-    /* Foco consistente com os inputs */
-    box-shadow: 0 0 0 3px var(--focus-glow);
-}
-
-/* 8. Ajustes de Espaçamento do Bootstrap */
-.form-group {
-    margin-bottom: 1.25rem; /* Espaçamento entre os campos */
-}
-
-/* Garante que o .form-row não tenha margem extra bagunçando o layout */
-.form-row {
-    margin-left: -5px;
-    margin-right: -5px;
-}
-.form-row > .col,
-.form-row > [class*="col-"] {
-    padding-left: 5px;
-    padding-right: 5px;
+    background-color: #1a3355;
+    border-color: #1a3355;
 }
 
 
-/* 9. Responsividade para Celulares */
-@media (max-width: 576px) {
-    body {
-        padding: 1rem;
-    }
-    
-    form {
-        padding: 1.5rem;
-    }
+.user-type-toggle {
+    display: flex;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    overflow: hidden;
+}
 
-    h2 {
-        font-size: 1.8rem;
-    }
+
+.user-type-input {
+    display: none;
+}
+
+
+.user-type-label {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    color: #495057;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+
+.user-type-input:checked+.user-type-label {
+    background-color: var(--condo-blue);
+    color: #ffffff;
+    font-weight: 500;
+}
+
+
+.user-type-label:first-of-type {
+    border-right: 1px solid #dee2e6;
 }

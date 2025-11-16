@@ -1,258 +1,360 @@
+/* --- 1. CONFIGURAÇÕES GLOBAIS E CORES --- */
 :root {
-  --primary-color: #0d6efd; /* Azul padrão do Bootstrap */
-  --primary-hover: #0b5ed7;
-  --text-dark: #212529;
-  --text-light: #6c757d;
-  --section-bg: #f8f9fa; /* Fundo das secções (cinza claro) */
+  --condo-blue: #1F3B63;
+  --condo-blue-dark: #1a3355;
+  --condo-blue-light: #e8ecf2; 
+  --condo-text: #212529;
+  --condo-text-light: #495057;
+  --bs-primary: var(--condo-blue);
+  --bs-primary-rgb: 31, 59, 99;
+  --bs-body-color: var(--condo-text);
+  --bs-body-bg: #f8f9fa; 
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
-  color: var(--text-dark);
-  line-height: 1.7;
+  font-family: 'Inter', sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  color: var(--text-dark);
-}
-
-/* =======================================
-   2. BARRA DE NAVEGAÇÃO
-   ======================================= */
-#main-nav {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.navbar-logo {
-  height: 70px; 
-  width: auto;
-}
-
-.navbar-nav .nav-link {
-  font-weight: 500;
-  color: var(--text-light);
-  transition: color 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: var(--primary-color);
-}
-
-.navbar-nav .btn-outline-primary {
-  border-width: 2px;
-  font-weight: 600;
-}
-
-/* =======================================
-   3. SECÇÃO "HERO" (APRESENTAÇÃO)
-   ======================================= */
-.hero-section {
-  padding: 6rem 0;
-  background-color: #ffffff;
-}
-
-.hero-title {
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-}
-
-.hero-subtitle {
-  font-size: 1.15rem;
-  color: var(--text-light);
-  margin-bottom: 2rem;
-}
-
-.hero-buttons .btn {
-  margin-right: 1rem;
-  margin-bottom: 1rem; /* Para empilhar bem no mobile */
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
-}
-
-/* =======================================
-   4. (ATUALIZADO) CARROSSEL DE IMAGENS
-   ======================================= */
-.app-carousel-container {
-  border-radius: 12px; /* Cantos arredondados */
-  overflow: hidden; /* Garante que as imagens não passem da borda */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08),
-    0 5px 10px rgba(0, 0, 0, 0.05);
-}
-
-/* Ajusta as imagens dentro do carrossel */
-.carousel-inner img {
-  border-radius: 12px;
-  max-height: 500px; /* Altura máxima */
-  object-fit: none; /* Garante que a imagem cubra a área */
-}
-
-/* Estiliza as legendas */
-.carousel-caption {
-  background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding-top: 3rem;
-  padding-bottom: 1.5rem;
-}
-
-.carousel-caption h5 {
-  color: #fff;
-  font-weight: 600;
-}
-
-.carousel-caption p {
-  color: #eee;
-}
-
-/* =======================================
-   5. SECÇÃO "FUNCIONALIDADES"
-   ======================================= */
-.features-section {
-  padding: 6rem 0;
-  background-color: var(--section-bg);
-}
-
+/* --- TÍTULO PADRÃO DAS SEÇÕES --- */
 .section-title {
   text-align: center;
   margin-bottom: 4rem;
 }
-
 .section-title span {
-  color: var(--primary-color);
-  font-weight: 700;
+  color: var(--condo-blue);
+  font-weight: 600;
   letter-spacing: 1px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
 }
-
 .section-title h2 {
   font-size: 2.5rem;
+  font-weight: 700;
   margin-top: 0.5rem;
 }
-
 .section-title p {
   font-size: 1.1rem;
-  color: var(--text-light);
+  color: var(--condo-text-light);
   max-width: 600px;
   margin: 1rem auto 0 auto;
 }
 
-.feature-card {
-  background-color: #ffffff;
-  padding: 2.5rem 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  height: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* --- 2. BARRA DE NAVEGAÇÃO --- */
+#main-nav {
+  transition: box-shadow 0.3s ease;
+}
+.navbar-logo {
+  height: 40px;
+  width: auto;
+}
+.navbar-nav .nav-link {
+  color: var(--condo-text);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--condo-blue);
+}
+.navbar-nav .btn-primary {
+  padding: 8px 20px;
 }
 
+/* --- 3. SEÇÃO "HERO" (APRESENTAÇÃO) --- */
+.hero-section {
+  background-color: #ffffff;
+  padding: 3rem 0;
+}
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--condo-text);
+  line-height: 1.2;
+}
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--condo-text-light);
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+.hero-buttons .btn {
+  margin-right: 1rem;
+  padding: 12px 28px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+.btn-outline-secondary {
+  border-color: #ced4da;
+  color: var(--condo-text);
+}
+.btn-outline-secondary:hover {
+  background-color: #f1f3f5;
+  border-color: #ced4da;
+  color: var(--condo-text);
+}
+.hero-trust-text {
+  margin-top: 1.5rem;
+  color: var(--condo-text-light);
+  font-size: 0.95rem;
+}
+.hero-trust-text i {
+  color: var(--condo-blue);
+  margin-right: 5px;
+}
+
+/* --- 4. MOCKUP DE CELULAR --- */
+.mobile-mockup {
+  background: #333; 
+  border-radius: 30px; 
+  padding: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border: 2px solid #444;
+  max-height: 550px; 
+  margin: 0 auto; 
+  overflow: hidden; 
+  display: flex; 
+  align-items: center; 
+}
+.app-carousel-container {
+  border-radius: 20px; 
+  overflow: hidden; 
+  width: 100%; 
+  height: 520px; 
+  display: flex; 
+  align-items: center; 
+}
+.app-carousel-container .carousel-item .d-block {
+  height: 100%; 
+  width: auto; 
+  object-fit: contain; 
+  margin: 0 auto; 
+  display: block; 
+}
+.carousel-caption {
+  display: none; /* Legendas desativadas para um visual mais limpo */
+}
+
+/* --- 5. [NOVO] SEÇÃO "COMO COMEÇAR" --- */
+.how-it-works-section {
+    padding: 6rem 0;
+    background-color: #ffffff;
+}
+.step-card {
+    padding: 2rem;
+}
+.step-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--condo-blue-light);
+    color: var(--condo-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem auto;
+}
+.step-card h4 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+.step-card p {
+    color: var(--condo-text-light);
+    font-size: 0.95rem;
+}
+
+/* --- 6. SEÇÃO DE FUNCIONALIDADES --- */
+.features-section {
+  padding: 6rem 0;
+  background-color: #f8f9fa; 
+}
+.feature-card {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: left;
+  height: 100%; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
 .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
-
-.feature-card .feature-icon {
-  font-size: 2.5rem;
-  color: var(--primary-color);
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; 
+  background-color: var(--condo-blue-light);
+  color: var(--condo-blue);
+  font-size: 1.75rem;
   margin-bottom: 1.5rem;
 }
-
 .feature-card h3 {
   font-size: 1.25rem;
-  margin-bottom: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
 }
-
 .feature-card p {
-  color: var(--text-light);
   font-size: 0.95rem;
+  color: var(--condo-text-light);
   line-height: 1.6;
 }
 
-/* =======================================
-   6. RODAPÉ
-   ======================================= */
+/* --- 7. [NOVO] SEÇÃO DE TESTEMUNHOS --- */
+.testimonial-section {
+    padding: 6rem 0;
+    background-color: var(--condo-blue-light);
+}
+.testimonial-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 3rem;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+.testimonial-quote {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--condo-text);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+.testimonial-name {
+    display: block;
+    font-weight: 700;
+    color: var(--condo-blue);
+}
+.testimonial-role {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--condo-text-light);
+}
+/* Controles do Carousel de Testemunhos */
+#testimonialCarousel .carousel-control-prev-icon,
+#testimonialCarousel .carousel-control-next-icon {
+    background-color: var(--condo-blue);
+    border-radius: 50%;
+    padding: 1.2rem;
+    background-size: 50%;
+}
+#testimonialCarousel .carousel-control-prev {
+    left: -50px;
+}
+#testimonialCarousel .carousel-control-next {
+    right: -50px;
+}
+@media (max-width: 768px) {
+    .testimonial-card { width: 100%; padding: 2rem; }
+    #testimonialCarousel .carousel-control-prev,
+    #testimonialCarousel .carousel-control-next {
+        display: none; /* Esconde setas no mobile */
+    }
+}
+
+
+/* --- 8. [NOVO] SEÇÃO CTA FINAL --- */
+.final-cta-section {
+    padding: 5rem 0;
+    background-color: var(--condo-blue);
+    color: #ffffff;
+}
+.final-cta-section h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.final-cta-section p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    opacity: 0.9;
+}
+.final-cta-section .btn-light {
+    font-weight: 600;
+    padding: 12px 30px;
+    color: var(--condo-blue);
+}
+
+/* --- 9. RODAPÉ --- */
 .footer-section {
+  background-color: #1a1a1a; 
+  color: #adb5bd; 
   padding: 5rem 0 2rem 0;
-  background-color: var(--text-dark);
-  color: #adb5bd; /* Cinza claro para o texto */
 }
-
-/* (NOVO) Alinha a primeira coluna (logo/socials) ao centro */
-.footer-section .row .col-lg-4:first-child {
-  text-align: center;
-}
-
 .footer-logo {
-  height: 100px;
-  margin-bottom: 1rem;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+  height: 40px;
+  margin-bottom: 1.5rem;
 }
-
 .footer-section p {
-  color: #adb5bd;
+  font-size: 0.95rem;
+  max-width: 300px;
 }
-
+.footer-socials {
+  margin-top: 1.5rem;
+}
+.footer-socials a {
+  color: #adb5bd;
+  font-size: 1.25rem;
+  margin-right: 1.5rem;
+  transition: color 0.2s ease;
+}
+.footer-socials a:hover {
+  color: #ffffff;
+}
 .footer-section h5 {
   color: #ffffff;
-  margin-bottom: 1.5rem;
   font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
-
 .footer-links {
   list-style: none;
-  padding: 0;
+  padding-left: 0;
 }
-
 .footer-links li {
   margin-bottom: 0.75rem;
 }
-
 .footer-links a {
   color: #adb5bd;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
-
 .footer-links a:hover {
   color: #ffffff;
 }
-
-.footer-links.contact-info i {
-  margin-right: 0.75rem;
-  width: 20px;
-  text-align: center;
-  color: var(--primary-color);
+.contact-info li {
+  display: flex;
+  align-items: center;
 }
-
-.footer-socials a {
-  font-size: 1.25rem;
-  color: #adb5bd;
-  /* (ALTERADO) Usa margem horizontal para espaçamento em vez de só na direita */
-  margin: 0 0.5rem;
-  transition: color 0.3s ease;
+.contact-info i {
+  margin-right: 10px;
+  font-size: 1rem;
+  color: #ffffff;
 }
-
-.footer-socials a:hover {
-  color: var(--primary-color);
-}
-
 .footer-bottom {
   text-align: center;
+  margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid #343a40; /* Linha divisória */
+  border-top: 1px solid #333;
 }
-
+.footer-bottom p {
+  max-width: none;
+  font-size: 0.9rem;
+  color: #888;
+}
